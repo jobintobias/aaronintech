@@ -1,0 +1,64 @@
+---
+import { socialData } from "@/data/siteData";
+
+import { Icon } from "astro-icon/components";
+---
+
+<footer>
+  <div>
+    <p>&copy; <span id="copyright">{new Date().getFullYear()}</span> | Aaron Smith</p>
+    <ul>
+      {socialData.map(({href, title, icon}) => (
+        <li>
+          <a href={href} aria-label={title} title={title} target="_blank">
+          <Icon name={icon} size={24}/>
+          </a>
+        </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const copyrightSpan = document.quarySelector("#copyright") as HTMLSpanElement;
+  copyrightSpan.textContent = new Date().getFullYear().toString();
+</script>
+
+<style>
+footer {
+  padding: var(--space-sm);
+  div {
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-xl);
+  padding-inline: var(--space-md);
+  flex-wrap: wrap;
+  align-self: start;
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  }
+  ul {
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+    p {
+      text-wrap: balance;
+      max-width: 40ch;
+    }
+    a {
+      display: block;
+      color: var(--tokyo-fg);
+      &:hover {
+        color: var(--tokyo-link);
+        transition: all 0.25s ease-in-out;
+      }
+    }
+  }
+}
+</style>

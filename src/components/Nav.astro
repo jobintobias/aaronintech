@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+
+const navData = [
+  {
+    title: "about",
+    href: "/about",
+  },
+  {
+    title: "blog",
+    href: "/blog",
+  },
+  {
+    title: "home",
+    href: "/",
+    icon: "cli",
+  },
+  {
+    title: "projects",
+    href: "/projects",
+  },
+  {
+    title: "resume",
+    href: "/resume",
+  }
+]
+---
+
+<nav>
+  <ul>
+    {
+      navData.map((i) => (
+        <li>
+          <a href={i.href} aria-label={i.icon && i.title}>
+            {i.icon && <Icon name={i.icon} size={48} aria-hidden="true" />}
+            {!i.icon && i.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector("nav");
+  const links = nav.querySelectorAll("li");
+  const path = window.location.pathname;
+  links.forEach((link) => {
+    if (link.querySelector("a").getAttribute("href") === path) {
+      link.querySelector("a").classList.add("active");
+    } else {
+      link.querySelector("a").classList.remove("active");
+    }
+  });
+</script>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-md);
+    ul {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+      align-items: center;
+      li {
+        a {
+          display: flex;
+          gap: 0.5rem;
+          text-decoration: none;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--tokyo-fg);
+          font-family: "Pixelify Sans", monospace;
+          &:hover {
+            color: var(--tokyo-link);
+            text-decoration: underline;
+            text-decoration-thickness: 0.2rem;
+            text-underline-offset: 0.5rem;
+            text-decoration-color: var(--tokyo-link);
+            transition: all 0.35s ease-in-out;
+          }
+        }
+      }
+      .active {
+        color: var(--tokyo-link);
+        text-decoration: underline;
+        text-decoration-thickness: 0.2rem;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: var(--tokyo-link);
+      }
+    }
+  }
+</style>

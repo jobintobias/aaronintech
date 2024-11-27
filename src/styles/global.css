@@ -1,0 +1,168 @@
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Base colors */
+  --tokyo-bg: #1a1b26;
+  --tokyo-bg-darker: #16161e;
+  --tokyo-bg-lighter: #24283b;
+
+  /* Primary accent colors */
+  --tokyo-cyan: #7dcfff;
+  --tokyo-blue: #7aa2f7;
+  --tokyo-purple: #bb9af7;
+  --tokyo-magenta: #ff007c;
+  --tokyo-orange: #ff9e64;
+
+  /* Terminal colors */
+  --tokyo-green: #9ece6a;
+  --tokyo-red: #f7768e;
+  --tokyo-yellow: #e0af68;
+
+  /* Text colors */
+  --tokyo-fg: #a9b1d6;
+  --tokyo-fg-lighter: #c0caf5;
+  --tokyo-fg-dark: #565f89;
+
+  /* UI element colors */
+  --tokyo-selection-bg: #283457;
+  --tokyo-comment: #565f89;
+  --tokyo-parameter: #cfc9c2;
+
+  /* Semantic colors */
+  --tokyo-success: var(--tokyo-green);
+  --tokyo-warning: var(--tokyo-yellow);
+  --tokyo-error: var(--tokyo-red);
+  --tokyo-info: var(--tokyo-blue);
+
+  /* Component specific */
+  --tokyo-link: var(--tokyo-cyan);
+  --tokyo-link-hover: var(--tokyo-blue);
+  --tokyo-border: #15161e;
+  --tokyo-shadow: rgba(0, 0, 0, 0.35);
+
+  /* Media breakpoints */
+  --screen-sm-min: 576px;
+  --screen-md-min: 768px;
+  --screen-lg-min: 992px;
+  --screen-xl-min: 1200px;
+  --screen-xxl-min: 1400px;
+
+  --space-4xs: clamp(0.1875rem, 0.1875rem + 0vw, 0.1875rem);
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.625rem, 0.6033rem + 0.1087vw, 0.6875rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-sm: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-md: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-lg: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+}
+
+/* variant styling */
+.primary {
+}
+.secondary {
+}
+
+a,
+button {
+  color: inherit;
+}
+
+.btn,
+.badge {
+  font-family: "Pixelify Sans", monospace;
+  color: var(--tokyo-fg);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.35s ease-in-out;
+  /* -webkit-border-radius: 0.5rem; */
+  /* -moz-border-radius: 0.5rem; */
+  /* -ms-border-radius: 0.5rem; */
+  /* -o-border-radius: 0.5rem; */
+  /* -webkit-border-radius: 0.5rem; */
+  /* -moz-border-radius: 0.5rem; */
+  /* -ms-border-radius: 0.5rem; */
+  /* -o-border-radius: 0.5rem; */
+  /* border-radius: 0.5rem; */
+  /* border: 1px solid var(--tokyo-fg); */
+  padding: 0.5rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    2px 0 0 0 var(--tokyo-fg),
+    -2px 0 0 0 var(--tokyo-fg),
+    0 2px 0 0 var(--tokyo-fg),
+    0 -2px 0 0 var(--tokyo-fg),
+    1px 1px 0 0 var(--tokyo-fg),
+    -1px -1px 0 0 var(--tokyo-fg),
+    1px -1px 0 0 var(--tokyo-fg),
+    -1px 1px 0 0 var(--tokyo-fg);
+}
+
+:is(.btn, .badge):hover {
+  color: var(--tokyo-link);
+  transition: all 0.35s ease-in-out;
+  box-shadow:
+    2px 0 0 0 var(--tokyo-link),
+    -2px 0 0 0 var(--tokyo-link),
+    0 2px 0 0 var(--tokyo-link),
+    0 -2px 0 0 var(--tokyo-link),
+    1px 1px 0 0 var(--tokyo-link),
+    -1px -1px 0 0 var(--tokyo-link),
+    1px -1px 0 0 var(--tokyo-link),
+    -1px 1px 0 0 var(--tokyo-link);
+}
+
+@media (min-width: var(--screen-sm-min)) {
+  /* small screen styles go here */
+}
+
+@media (min-width: var(--screen-md-min)) {
+  /* medium screen styles go here */
+}
+
+@media (min-width: var(--screen-lg-min)) {
+  /* large screen styles go here */
+}
+
+@media (min-width: var(--screen-xl-min)) {
+  /* extra large screen styles go here */
+}
+
+@media (min-width: var(--screen-xxl-min)) {
+  /* extra extra large screen styles go here */
+}
+
+body {
+  font-family: "JetBrains Mono", sans-serif;
+  background-color: var(--tokyo-bg);
+  color: var(--tokyo-fg);
+  grid-template-rows: auto 1fr auto;
+  max-width: 2000px;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+}
+
+main {
+  gap: var(--space-md);
+  margin-block: var(--space-md);
+  display: grid;
+}
